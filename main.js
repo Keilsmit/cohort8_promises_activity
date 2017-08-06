@@ -19,16 +19,18 @@ function add1(v) {
 
 
 // Write a function `multiplyLog` that accepts a callback and a number as it's arguments.
+let newNumber = 4;
+
 let m = new Promise(function(res, rej){
   setTimeout(function(){
-    return res(2);
+    return res(newNumber);
   }, 1000)
 });
 
 
 m.then(multiplyLog)
-    .then( function(sum){
-      console.log(sum);
+    .then( function logger(sum){
+      console.log(`The number is ${sum}`);
     });
 
 function multiplyLog(num){
